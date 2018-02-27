@@ -12,7 +12,7 @@ class Dashboard extends React.Component {
         <h1>Budget App</h1>
 
         <CategoryForm
-          buttonText='create'
+          buttonText='Create'
           onComplete={this.props.dashboardCategoryCreate}/>
 
         {this.props.categories ?
