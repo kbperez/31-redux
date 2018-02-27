@@ -8,12 +8,16 @@ import CategoryForm from '../category-form/category-form';
 class CategoryItem extends React.Component {
   constructor(props) {
     super(props);
-    this.state = this.props.cat;
+    this.state = {
+      editing: false,
+    };
 
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleDelete = this.handleDelete.bind(this);
     this.handleUpdateForm = this.handleUpdateForm.bind(this);
   }
+
+
 
   handleUpdate(cat) {
     this.setState({editing: !this.state.editing});
@@ -31,7 +35,7 @@ class CategoryItem extends React.Component {
   render() {
     return (
       <div key={this.props.cat._id} onDoubleClick={this.handleUpdateForm}>
-        <h3>Category: {this.props.cat.title}</h3>
+        <h5>Category: {this.props.cat.title}</h5>
         <p> Budget: ${this.props.cat.budget}</p>
         <button type="button" onClick={this.handleDelete}>Delete</button>
         {renderIf(this.state.editing, <CategoryForm
